@@ -9,7 +9,7 @@
 [![Backend tests](https://img.shields.io/badge/backend-5%20tests%20passing-brightgreen)](#-verify-it-works)
 [![LogScope](https://img.shields.io/badge/logscope-zero--deps-orange)](#-logscope--log-analysis-cli)
 
-🌐 **Live Demo:** run locally at [http://localhost:4000/](http://localhost:4000/) — or expose it publicly (see [Sharing the app](#-sharing-the-app-public-url)).
+🌐 **Live Demo: [https://conflicts-revenue-london-examination.trycloudflare.com/](https://conflicts-revenue-london-examination.trycloudflare.com/)**
 
 **Try it in 60 seconds:**
 
@@ -49,20 +49,20 @@ Returns a structured result with `issueSummary`, `severity`, `likelyCause`, `sug
 
 ## 🌐 Live Demo
 
-**App:** run `node src/index.js` in `backend/` and open [http://localhost:4000/](http://localhost:4000/). To share a public link, see [Sharing the app](#-sharing-the-app-public-url).
+**App:** [https://conflicts-revenue-london-examination.trycloudflare.com/](https://conflicts-revenue-london-examination.trycloudflare.com/)
 
 ```bash
 # Health check (live)
-curl http://localhost:4000/api/health
+curl https://conflicts-revenue-london-examination.trycloudflare.com/api/health
 # {"ok":true,"service":"fixa-ai-backend"}
 
 # Analyze (live)
-curl -X POST http://localhost:4000/api/analyze \
+curl -X POST https://conflicts-revenue-london-examination.trycloudflare.com/api/analyze \
   -H "Content-Type: application/json" \
   -d '{"type":"fix_error","language":"javascript","framework":"react","code":"<button onClick={handleLogin()}>Login</button>","error":"Too many re-renders"}'
 ```
 
-> Local dev still runs on `http://localhost:4000` (see [Quick start](#-quick-start)).
+> Local dev runs on `http://localhost:4000` (see [Quick start](#-quick-start)). To expose your own public link, see [Sharing the app](#-sharing-the-app-public-url).
 
 ## 📡 Sharing the app (public URL)
 
@@ -75,12 +75,18 @@ npm run share   # prints PUBLIC_URL=https://<name>.loca.lt, auto-reconnects
 ```
 Open the printed URL in any browser. If it shows 502/503, the network is blocking tunnel relays — use Option B or C.
 
-**Option B — ngrok (stable link):**
+**Option B — Cloudflare quick tunnel (verified working, free, no account):**
+```powershell
+cloudflared tunnel --url http://localhost:4000
+# prints https://<name>.trycloudflare.com — use it as the Live Demo URL
+```
+
+**Option C — ngrok (stable link):**
 ```powershell
 ngrok http 4000   # paste your free authtoken once: ngrok config add-authtoken <token>
 ```
 
-**Option C — permanent hosting (recommended for judging):**
+**Option D — permanent hosting (recommended for judging):**
 Deploy `backend/` to Render/Railway/Fly (`node src/index.js`, port 4000) and put the URL at the top of this README.
 
 ---

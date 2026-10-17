@@ -9,8 +9,6 @@
 [![Backend tests](https://img.shields.io/badge/backend-5%20tests%20passing-brightgreen)](#-verify-it-works)
 [![LogScope](https://img.shields.io/badge/logscope-zero--deps-orange)](#-logscope--log-analysis-cli)
 
-🌐 **Live Demo: [https://conflicts-revenue-london-examination.trycloudflare.com/](https://conflicts-revenue-london-examination.trycloudflare.com/)**
-
 **Try it in 60 seconds:**
 
 ```bash
@@ -60,13 +58,6 @@ curl https://conflicts-revenue-london-examination.trycloudflare.com/api/health
 curl -X POST https://conflicts-revenue-london-examination.trycloudflare.com/api/analyze \
   -H "Content-Type: application/json" \
   -d '{"type":"fix_error","language":"javascript","framework":"react","code":"<button onClick={handleLogin()}>Login</button>","error":"Too many re-renders"}'
-```
-
-> Local dev runs on `http://localhost:4000` (see [Quick start](#-quick-start)). To expose your own public link, see [Sharing the app](#-sharing-the-app-public-url).
-
-## 📡 Sharing the app (public URL)
-
-Pick one option — the app needs no code changes, just expose port 4000:
 
 **Option A — self-healing tunnel script (quick demo):**
 ```powershell
